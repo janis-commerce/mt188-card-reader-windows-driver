@@ -4,7 +4,8 @@
   "description": "DLL’s Instructions wrapper for MT188VE300K",
   "main": "cardReader.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint cardReader.js libModule.js types.js error.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,11 @@
   ],
   "dependencies": {
     "ffi": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^2.7.0"
   }
 }
