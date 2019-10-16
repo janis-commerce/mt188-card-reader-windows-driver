@@ -2,10 +2,10 @@
   "name": "mt188-card-reader-windows-driver",
   "version": "1.0.0",
   "description": "DLL’s Instructions wrapper for MT188VE300K",
-  "main": "cardReader.js",
+  "main": "lib/cardReader.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint cardReader.js libModule.js types.js error.js"
+    "lint": "eslint lib"
   },
   "repository": {
     "type": "git",
