@@ -1,5 +1,5 @@
 {
-  "name": "mt188-card-reader-windows-driver",
+  "name": "@janiscommerce/mt188-card-reader-windows-driver",
   "version": "1.0.0",
   "description": "DLL’s Instructions wrapper for MT188VE300K",
   "main": "lib/cardReader.js",
