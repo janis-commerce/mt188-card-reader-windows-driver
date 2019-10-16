@@ -96,7 +96,7 @@ exports.readMagneticCard = function(track) {
         } else {
             var len = ref.deref(lenIntPtr);
             if(len == 0x02) {
-                var firstByte = ref.get(data, 0, ref.types.byte);                  
+                var firstByte = ref.get(data, 0, ref.types.byte);
                 if (firstByte == 0xE1 || firstByte == 0xE2 || firstByte == 0xE3) {
                     reject("Failure");
                 }
@@ -210,20 +210,20 @@ exports.SIMSendAPDU = function (SIMNo, sendData) {
     return new Promise(function(resolve, reject) {
         // BYTE SendData[1024]
         var sendDataBuffer = Buffer.from(sendData, 'hex');
-        
+
         // BYTE RecvData[1024]
         var recvDataBuffer = Buffer.alloc(1024, 0);
 
         // DWORD *RecvDataLen
         var recvDataLenDWordPtr = ref.alloc(types.dword, 0);
-        
+
         var ret = libModule.MT188_SIM_APDU(SIMNo, sendDataBuffer, sendData.length / 2, recvDataBuffer, recvDataLenDWordPtr);
 
         if(ret != 0) {
             reject(error(ret));
         } else {
             var len = ref.deref(recvDataLenDWordPtr) * 2; // Warning! Legnth is wrong informed, or doesnt match demo app. We're getting half of the value.
-            var recvData = recvDataBuffer.toString('hex').substr(0, len); 
+            var recvData = recvDataBuffer.toString('hex').substr(0, len);
             resolve(recvData);
         }
     });
@@ -261,7 +261,7 @@ exports.RFAPowerOn = function () {
         if(ret != 0) {
             reject(error(ret));
         } else {
-            var len = ref.deref(ATRLenDWordPtr) * 2; 
+            var len = ref.deref(ATRLenDWordPtr) * 2;
             var ATR = ATRBuffer.toString('hex').substr(0, len);
             resolve(ATR);
         }
@@ -275,20 +275,20 @@ exports.RFASendAPDU = function (sendData) {
     return new Promise(function(resolve, reject) {
         // BYTE SendData[1024]
         var sendDataBuffer = Buffer.from(sendData, 'hex');
-        
+
         // BYTE RecvData[1024]
         var recvDataBuffer = Buffer.alloc(1024, 0);
 
         // DWORD *RecvDataLen
         var recvDataLenDWordPtr = ref.alloc(types.dword, 0);
-        
+
         var ret = libModule.MT188_RFA_APDU(sendDataBuffer, sendData.length / 2, recvDataBuffer, recvDataLenDWordPtr);
 
         if(ret != 0) {
             reject(error(ret));
         } else {
             var len = ref.deref(recvDataLenDWordPtr) * 2;
-            var recvData = recvDataBuffer.toString('hex').substr(0, len); 
+            var recvData = recvDataBuffer.toString('hex').substr(0, len);
             resolve(recvData);
         }
     });

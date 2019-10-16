@@ -10,8 +10,8 @@ module.exports = ffi.Library('dll/Module', {
     // DLLEXPORT DWORD WINAPI MT188_Open(char *ReaderName)
     'MT188_Open': [types.dword, [ref.types.CString]],
 
-    // DLLEXPORT DWORD WINAPI MT188_Close()
-    'MT188_Close': [types.dword, []],
+    // DLLEXPORT DWORD WINAPI MT188_Close(char *ReaderName)
+    'MT188_Close': [types.dword, [ref.types.CString]],
 
 
     // -- Magnetic Card
