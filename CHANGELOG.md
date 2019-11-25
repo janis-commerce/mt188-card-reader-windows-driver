@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.0] - 2019-11-25
+### Added
+- DLL path can now be configured with MT188_DRIVER_LOCATION env variable
+
 ## [1.0.1] - 2019-10-25
 ### Fixed
 - DLL Path resolution
